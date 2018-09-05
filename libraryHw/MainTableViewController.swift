@@ -13,18 +13,14 @@ class MainTableViewController: UITableViewController {
     //MARK: - UI Elements
     
     
-    
-    
-    
-    
     //MARK: - Properties
     
-    var gameList: [Game] = []
+    var gameList = Game.allGames
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     
@@ -44,24 +40,13 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GameItem", for: indexPath)
-        cell.textLabel?.text = gameList[indexPath.row].gameName
+        let gameName = gameList[indexPath.row].name
+        let studioName = gameList[indexPath.row].studio
+        cell.textLabel?.text = "Game: \(gameName), Studio: \(studioName)"
         return cell
 
     }
     
-    
-    
-    func populateGameList() {
-
-        let gamesAndStudios = GamesAndStudiosBank()
-        
-        for item in gamesAndStudios.games  {
-            let newGameItem = Game(gameName: item.key, studio: item.value)
-            gameList.append(newGameItem)
-            
-        }
-        
-    }
 
 }
 

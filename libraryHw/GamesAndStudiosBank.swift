@@ -10,6 +10,7 @@ import Foundation
 
 struct GamesAndStudiosBank {
     
-    var games = ["Halo": "Bungie", "God of War": "Bethesda", "GTA": "RockstarGames",  "UFC": "EA"]
+    var games = ["Halo": "Bungie", "God of War": "Santa Monica", "GTA": "RockstarGames",  "UFC": "EA"]
+    var gamez = [Game(name:"jhhjg" studio: "jgjfh")]
 
 }
