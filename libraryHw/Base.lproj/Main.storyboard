@@ -44,7 +44,7 @@
                     <navigationItem key="navigationItem" title="Games List" id="iNU-g4-7wd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f5K-4W-kaX">
                             <connections>
-                                <segue destination="xcI-T7-AAI" kind="show" id="wGz-yN-pVc"/>
+                                <segue destination="xcI-T7-AAI" kind="push" identifier="AddGameSegue" id="wGz-yN-pVc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -71,7 +71,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Game and Studio" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cqW-xu-YwW">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Game" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cqW-xu-YwW">
+                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hqr-hN-RM9">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hqr-hN-RM9" id="H2k-nq-oWv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Studio" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCE-rx-fXZ">
                                                     <rect key="frame" x="16" y="6" width="343" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
@@ -90,9 +107,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Game &amp; Studio" id="Yo9-mb-rzm">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EPn-cI-Qfk"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Dau-0X-aVH"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EPn-cI-Qfk">
+                            <connections>
+                                <action selector="cancelTapped:" destination="xcI-T7-AAI" id="Azr-bH-a9d"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Dau-0X-aVH">
+                            <connections>
+                                <action selector="doneTapped:" destination="xcI-T7-AAI" id="b56-Si-CUC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="gameTextField" destination="cqW-xu-YwW" id="uMI-UB-zgX"/>
+                        <outlet property="studioTextField" destination="vCE-rx-fXZ" id="PUx-fU-9zb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QF-pl-Sl8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
