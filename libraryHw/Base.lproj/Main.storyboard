@@ -44,7 +44,7 @@
                     <navigationItem key="navigationItem" title="Games List" id="iNU-g4-7wd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f5K-4W-kaX">
                             <connections>
-                                <segue destination="xcI-T7-AAI" kind="push" identifier="AddGameSegue" id="wGz-yN-pVc"/>
+                                <segue destination="xcI-T7-AAI" kind="show" identifier="AddGameSegue" id="wGz-yN-pVc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
