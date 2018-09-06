@@ -9,9 +9,6 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
-
-    //MARK: - UI Elements
-    
     
     //MARK: - Properties
     
@@ -22,16 +19,7 @@ class MainTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
-    
-    //MARK: - Actions
-    
-    
-    
-    
-    
-    
-    
+
     //MARK: - Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +35,29 @@ class MainTableViewController: UITableViewController {
 
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            gameList.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddGameSegue" {
+            if let addGameTableView = segue.destination as? AddGameTableViewController {
+                addGameTableView.delegate = self
+            }
+        }
+    }
+}
+
+extension MainTableViewController: AddGameDelegate {
+    func addGame(game: Game) {
+        gameList.append(game)
+        tableView.reloadData()
+    }
 }
 
